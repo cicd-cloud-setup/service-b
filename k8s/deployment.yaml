@@ -17,5 +17,5 @@ spec:
         - image: service-b:latest
           name: service-b
           ports:
-            - containerPort: 80
+            - containerPort: 3000
           imagePullPolicy: IfNotPresent

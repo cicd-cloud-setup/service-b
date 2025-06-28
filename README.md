@@ -1,6 +1,8 @@
 ```sh
 docker build -t service-b:latest .
 kind load docker-image service-b:latest
+
+docker run -ti --rm -p 3000:3000 service-b
 ```
 
 

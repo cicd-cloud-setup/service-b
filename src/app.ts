@@ -4,7 +4,7 @@ import autoLoad from "@fastify/autoload"
 import fastifySwagger from "@fastify/swagger"
 import path from "path"
 import hyperid from "hyperid"
-import elasticAPM from "elastic-apm-node"
+// import elasticAPM from "elastic-apm-node"
 import { writeFileSync } from "fs"
 
 import { loggerEnv, loggerConfig } from "@/common/logger"
@@ -14,15 +14,15 @@ import { init as initRabbitMQ } from "@/infrastructure/rabbitMQ"
 const useElasticAPM = process.env.USE_ELASTIC_APM ?? "true"
 
 if (loggerEnv !== "test" && useElasticAPM == "true") {
-	elasticAPM.start({
-		// apiKey: "./secrets/certs/apm-server/apm-server.key",
-		captureBody: loggerEnv != "production" ? "all" : "off",
-		// secretToken: "./secrets/certs/apm-server/apm-server.crt",
-		secretToken: "secrettokengoeshere",
-		// serverCaCertFile: "./secrets/certs/apm-server/apm-server.crt",
-		serverUrl: "https://apm-server:8200",
-		verifyServerCert: false,
-	})
+	// elasticAPM.start({
+	// 	// apiKey: "./secrets/certs/apm-server/apm-server.key",
+	// 	captureBody: loggerEnv != "production" ? "all" : "off",
+	// 	// secretToken: "./secrets/certs/apm-server/apm-server.crt",
+	// 	secretToken: "secrettokengoeshere",
+	// 	// serverCaCertFile: "./secrets/certs/apm-server/apm-server.crt",
+	// 	serverUrl: "https://apm-server:8200",
+	// 	verifyServerCert: false,
+	// })
 }
 
 export const options: FastifyServerOptions = {
@@ -87,8 +87,8 @@ void fastifySetup.register(autoLoad, {
 
 export const start = async () => {
 	try {
-		await initCache()
-		await initRabbitMQ()
+		// await initCache()
+		// await initRabbitMQ()
 		const port = Number(process.env.API_PORT ?? 3000)
 		await fastifySetup.listen({
 			host: "0.0.0.0",
