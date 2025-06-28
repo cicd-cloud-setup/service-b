@@ -18,3 +18,4 @@ spec:
           name: service-b
           ports:
             - containerPort: 80
+          imagePullPolicy: IfNotPresent
