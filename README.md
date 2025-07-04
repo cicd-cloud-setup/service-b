@@ -5,6 +5,11 @@ kind load docker-image service-b:latest
 docker run -ti --rm -p 3000:3000 service-b
 ```
 
+```sh
+kubectl apply -f ./k8s/service.yaml
+kubectl apply -f ./k8s/deployment.yaml
+```
+
 
 
 # Fastify template
