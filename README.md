@@ -8,6 +8,11 @@ docker run -ti --rm -p 3000:3000 service-b
 ```sh
 kubectl apply -f ./k8s/service.yaml
 kubectl apply -f ./k8s/deployment.yaml
+
+kubectl delete -f ./k8s/service.yaml
+kubectl delete -f ./k8s/deployment.yaml
+
+kubectl logs -fl app=service-b -n default
 ```
 
 
